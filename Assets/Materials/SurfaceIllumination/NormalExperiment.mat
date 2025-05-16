@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NormalMapsIntro
-  m_Shader: {fileID: 4800000, guid: 11062ae634f8a8941a96d1b6075e335d, type: 3}
+  m_Name: NormalExperiment
+  m_Shader: {fileID: 4800000, guid: ff7185c7d338e3f428433b6d78771f95, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -93,6 +93,9 @@ Material:
     - _myDepthSlider: 10
     - _myScaleSlider: 1
     - _mySlider: 9.96
+    - _myX: 1
+    - _myY: 1
+    - _myZ: 1
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.091, g: 0, b: 0.68275833, a: 1}
