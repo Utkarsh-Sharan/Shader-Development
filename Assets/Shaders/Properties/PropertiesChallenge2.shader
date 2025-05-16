@@ -1,24 +1,25 @@
-Shader "Custom/PropertiesChallenge2"
+Shader "Introduction/PropertiesChallenge2"
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _myTex ("Texture", 2D) = "white" {}
     }
     SubShader
     {
         CGPROGRAM
+        #pragma surface surf Lambert
+
+        sampler2D _myTex;
 
         struct Input
         {
-            float2 uv_MainTex;
+            float2 uv_myTex;
         };
 
-        fixed4 _Color;
-
-        void surf (Input IN, inout SurfaceOutputStandard o)
+        void surf (Input IN, inout SurfaceOutput o)
         {
-            
+            o.Albedo = tex2D(_myTex, IN.uv_myTex).rgb;
+            o.Albedo.g = 1;
         }
         ENDCG
     }
