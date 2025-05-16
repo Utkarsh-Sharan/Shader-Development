@@ -36,7 +36,7 @@ Shader "Introduction/AllProperties"
             //IN.uv_MainTex is grabbing all the uv values we got on the model, 
             //wrapping the  _myTex(texture) 
             //onto it using tex2D() (not built in unity, its built in HLSL) method.
-            o.Albedo = (tex2D(_myTex, IN.uv_myTex) * _myRange).rgb; //turns intensity of the color up/down when range is high/low. Multiplies the r, g and b values with same number.
+            o.Albedo = (tex2D(_myTex, IN.uv_myTex) * _myRange + _myColor).rgb; //turns intensity of the color up/down when range is high/low. Multiplies the r, g and b values with same number.
             o.Emission = texCUBE(_myCube, IN.worldRefl).rgb;
         }
         ENDCG
