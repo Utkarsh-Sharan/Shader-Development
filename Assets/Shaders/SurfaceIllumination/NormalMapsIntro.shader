@@ -4,7 +4,8 @@ Shader "Lighting/NormalMapsIntro"
     {
         _myDiffuseTex("Diffuse Texture", 2D) = "white" {}
         _myNormalTex("Bump Texture", 2D) = "bump" {}    //Bump and Normal are used interchangably
-        _mySlider("Depth Slider", Range(0, 10)) = 1
+        _myDepthSlider("Depth Slider", Range(0, 10)) = 1
+        _myScaleSlider("Scale Slider", Range(0.5, 2)) = 1
     }
     SubShader
     {
@@ -13,7 +14,8 @@ Shader "Lighting/NormalMapsIntro"
 
         sampler2D _myDiffuseTex;
         sampler2D _myNormalTex;
-        half _mySlider;
+        half _myDepthSlider;
+        half _myScaleSlider;
 
         struct Input
         {
@@ -23,9 +25,9 @@ Shader "Lighting/NormalMapsIntro"
 
         void surf(Input IN, inout SurfaceOutput o)
         {
-            o.Albedo = tex2D(_myDiffuseTex, IN.uv_myDiffuseTex).rgb;
-            o.Normal = UnpackNormal(tex2D(_myNormalTex, IN.uv_myNormalTex));
-            o.Normal *= float3(_mySlider, _mySlider, 1);
+            o.Albedo = tex2D(_myDiffuseTex, IN.uv_myDiffuseTex * _myScaleSlider).rgb;
+            o.Normal = UnpackNormal(tex2D(_myNormalTex, IN.uv_myNormalTex * _myScaleSlider));
+            o.Normal *= float3(_myDepthSlider, _myDepthSlider, 1);
         }
         ENDCG
     }
