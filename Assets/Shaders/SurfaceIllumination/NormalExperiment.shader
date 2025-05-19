@@ -1,4 +1,4 @@
-Shader "Lighting/NormalExperiment"
+Shader "SurfIllumination/NormalExperiment"
 {
     Properties
     {

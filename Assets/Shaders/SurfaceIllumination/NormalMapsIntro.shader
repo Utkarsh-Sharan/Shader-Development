@@ -1,4 +1,4 @@
-Shader "Lighting/NormalMapsIntro"
+Shader "SurfIllumination/NormalMapsIntro"
 {
     Properties
     {
