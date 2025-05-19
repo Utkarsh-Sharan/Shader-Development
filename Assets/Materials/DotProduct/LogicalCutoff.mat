@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RimLightEffect
-  m_Shader: {fileID: 4800000, guid: d8491970866148d4ab99a322fa59e0a8, type: 3}
+  m_Name: LogicalCutoff
+  m_Shader: {fileID: 4800000, guid: d6e011ffd1974254dbbc33c2f5fab944, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -86,6 +86,6 @@ Material:
     - _myColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _myEmission: {r: 0, g: 0.97961134, b: 1, a: 1}
     - _myNormal: {r: 1, g: 1, b: 1, a: 1}
-    - _rimColor: {r: 0, g: 0.5, b: 0.5, a: 0}
+    - _rimColor: {r: 0.5019608, g: 0.35211852, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
