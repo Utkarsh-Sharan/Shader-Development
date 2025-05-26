@@ -1,4 +1,4 @@
-Shader "Lighting/BumpedEnvironment"
+Shader "SurfIllumination/BumpedEnvironment"
 {
     Properties
     {
