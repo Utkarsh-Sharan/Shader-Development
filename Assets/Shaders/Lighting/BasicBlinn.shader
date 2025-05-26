@@ -19,7 +19,7 @@ Shader "Lighting/BasicBlinn"
             float spec = pow(nh, 48.0);
             
             half4 c;
-            c.rgb = (s.Albedo * _LightColor0.rgb * diff + _LightColor0.rgb * spec) * atten; 
+            c.rgb = (s.Albedo * _LightColor0.rgb * diff + _LightColor0.rgb * spec) * atten * _SinTime; //the _SinTime returns 4	values that change overtime	based on the time since	level load
             c.a = s.Alpha;
           
             return c;

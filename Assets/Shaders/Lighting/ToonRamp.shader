@@ -32,11 +32,17 @@ Shader "Lighting/ToonRamp"
         struct Input
         {
             float2 uv_MainTex;
+            float3 viewDir;
         };
 
         void surf(Input IN, inout SurfaceOutput o)
         {
-            o.Albedo = _Color.rgb;
+            //o.Albedo = _Color.rgb;
+            float diff = dot(o.Normal, IN.viewDir); //challenge 3 completed.s
+            float h = diff * 0.5 + 0.5;
+            float2 rh = h;
+
+            o.Albedo = tex2D(_RampTex, rh).rgb;
         }
         ENDCG
     }
