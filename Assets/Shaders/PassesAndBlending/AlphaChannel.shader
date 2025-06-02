@@ -8,6 +8,8 @@ Shader "PassesAndBlending/AlphaChannel"
     {
         Tags { "Queue"="Transparent" }
 
+        Cull Off //we can now see back face of the polygon. useful for leaves/particles.
+
         CGPROGRAM
         #pragma surface surf Lambert alpha:fade
 
