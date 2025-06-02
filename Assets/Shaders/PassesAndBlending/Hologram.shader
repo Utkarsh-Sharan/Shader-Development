@@ -9,12 +9,12 @@ Shader "PassesAndBlending/Hologram"
     {
         Tags { "Queue" = "Transparent" }
 
-        Pass{   //we are using a pass here.
+        Pass{   //we are using a pass here. 1 pass = 1 draw call.
             ZWrite On   //this is writing a depth data into the z-buffer (used for depth)
             ColorMask 0 //we are not writing any colored pixels into the frame buffer.
         }
 
-        CGPROGRAM
+        CGPROGRAM   //This is another pass
         #pragma surface surf Lambert alpha:fade
 
         float4 _RimColor;
