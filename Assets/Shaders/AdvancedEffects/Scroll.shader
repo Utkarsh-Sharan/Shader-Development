@@ -9,8 +9,6 @@
 	}
 	SubShader
 	{
-
-
 		CGPROGRAM
 		#pragma surface surf Lambert
 
