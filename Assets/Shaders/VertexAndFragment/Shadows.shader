@@ -13,8 +13,11 @@ Shader "VertexAndFragment/Shadows"
             CGPROGRAM
             #pragma vertex vert                     // Declares the vertex shader function.
             #pragma fragment frag                   // Declares the fragment shader function.
+            #pragma multi_compile_fwdbase nolightmap nodirlightmap nodynlightmap novertexlight
             #include "UnityCG.cginc"                // Includes common Unity shader functions.
             #include "UnityLightingCommon.cginc"    // Includes common Unity lighting functions.
+            #include "Lighting.cginc"
+            #include "AutoLight.cginc"
 
             // Defines the structure for input vertex data.
             struct appdata {
@@ -28,18 +31,21 @@ Shader "VertexAndFragment/Shadows"
             {
                 float2 uv : TEXCOORD0;          // Texture coordinates.
                 fixed4 diff : COLOR0;           // Diffuse lighting color.
-                float4 vertex : SV_POSITION;    // Transformed vertex position.
+                //float4 vertex : SV_POSITION;    // Transformed vertex position.
+                float4 pos : SV_POSITION;       // Here its pos, bcz TRANSFER_SHADOW(o) line is looking for pos, not for vertex.
+                SHADOW_COORDS(1)                // Calculates coords for the shadows on the object
             };
 
             // Vertex shader function
             v2f vert(appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);                      // Converts object-space vertex to clip-space.
+                o.pos = UnityObjectToClipPos(v.vertex);                      // Converts object-space vertex to clip-space.
                 o.uv = v.texcoord;                                              // Passes texture coordinates to fragment shader.
                 half3 worldNormal = UnityObjectToWorldNormal(v.normal);         // Converts object-space normal to world-space.
                 half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));   // Computes light intensity based on normal direction.
                 o.diff = nl * _LightColor0;                                     // Multiplies light intensity by the light color.
+                TRANSFER_SHADOW(o)
 
                 return o;                                                       // Returns processed data.
             }
@@ -50,7 +56,8 @@ Shader "VertexAndFragment/Shadows"
             fixed4 frag(v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);     // Samples the texture at the given coordinates.
-                col *= i.diff;                          // Applies lighting effect to the texture color.
+                fixed shadow = SHADOW_ATTENUATION(i);
+                col *= i.diff * shadow;                          // Applies lighting effect to the texture color.
 
                 return col;                             // Returns the final color.
             }
