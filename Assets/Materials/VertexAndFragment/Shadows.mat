@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MaterialUse
-  m_Shader: {fileID: 4800000, guid: 531394fb60f652a4c9c2372bd6c08408, type: 3}
+  m_Name: Shadows
+  m_Shader: {fileID: 4800000, guid: 49e774601520bad47a9c247c24452f13, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 740f96d568f4f3e40b049c40f11603e5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 33c8cc7aa40094245bbd4e1bb205c48e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
