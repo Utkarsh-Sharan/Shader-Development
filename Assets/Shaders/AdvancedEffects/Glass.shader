@@ -1,4 +1,4 @@
-﻿Shader "Holistic/Glass"
+﻿Shader "AdvancedEffects/Glass"
 {
 	Properties
 	{

@@ -74,7 +74,7 @@ Material:
     - _MySliderValue: 10
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ScaleUV: 1
+    - _ScaleUV: 14.05
     - _ScaleUVX: 1
     - _ScaleUVY: 1
     - _SmoothnessTextureChannel: 0
